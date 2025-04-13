@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    padding:0;
+}
+header{
+    height: auto;
+}
+
+/*flex: x y z -> x=flex-grow,y=flex-shrink,z=flex-basis
+flex-grow:specifica quanto un oggetto flex cresce rispetto al resto
+flex-shrink:specifica quanto un oggetto flex si ridurrà rispetto agli altri elementi
+flex-basis:specifica la lunghezza iniziale di un elemento flessibile
+*/
+.navbar{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    background-color: transparent;
+    padding:1rem 2rem;
+}
+.hamburger-menu{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+}
+.hamburger{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span{
+    height: 2px;
+    width: 14px;
+    background: black;
+    margin: 1px 0;
+    transition: all 0.3s;
+}
+.hamburger-menu>span{ /*Solo gli span figli diretti di hamburger-menu*/
+    font:normal 600 .9375em / 1.0666666667 "Noto Sans", Helvetica, sans-serif;
+}
+.top-bar-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1.4rem;   /* Spazio a destra della barra */
+    margin-left: 1.4rem;    /* Spazio tra sub-bar e search-bar */
+}
+.sections-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    flex:1;
+}
+.title-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex:0 1 auto;
+    min-width: 0;
+}
+.title-img {
+    max-height: 70px;
+    height: auto;
+    width: auto;
+}
+.right-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    flex:1;
+}
+.sub-container{
+    display:flex;
+    align-items: center;
+}
+.search-container {     /* Viene dopo sub-bar nella top-bar */
+    display: flex;
+    justify-self: flex-end;
+}
+.sub-container ul {
+    list-style: none;           /* Rimuove i punti dell'elenco */
+    display: flex;              /* Disposizione orizzontale */
+    gap: 15px;                  /* Spazio tra i due bottoni */
+    padding:0;
+}
+/* Stile dei link (bottoni) */
+.sub-container a {
+    width: 7em;                 /* Larghezza fissa dei bottoni */
+    display: block;             /* Rende il link un blocco cliccabile */
+    background-color: #006394; /* Colore di sfondo */
+    color: #fff;                /* Colore del testo */
+    text-align: center;         /* Centra il testo orizzontalmente */
+    font: normal 600 1em / 1.733 "Noto Sans", Helvetica, sans-serif; /* Font compatto e leggibile */
+    padding: 0.6rem 0.4rem;     /* Spaziatura interna */
+    border-radius: 4px;         /* Angoli smussati */
+}
+/* Link: rimuove la sottolineatura */
+.sub-container a:link{
+    text-decoration: none;
+}
+
+/* Hover: cambia colore e aggiunge sottolineatura */
+.sub-container a:hover{
+    color:#FFFFFF;
+    background-color:#007AB8;
+    text-decoration: underline;
+}
+
+.search-container>button{
+    border:none;
+    background-color: transparent;
+}
+.search-container-icon{
+    width: 23px;
+    height: 23px;
+}
