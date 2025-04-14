@@ -17,17 +17,16 @@ function toggleMenu() {
         }
     }
 }
-/*
-<div className="sub-bar-container">
-    <ul className="ul-sub-bar">
-        <li><a href="#">Subscribe</a></li>
-        <li><a href="#">Log in</a></li>
-    </ul>
-</div>
-<div className="search-bar">
-    <button type="submit">
-        <img src="images/search-bar-icon.png" className="search-bar-icon" alt="search icon"/>
-    </button>
-</div>
- */
 
+function weatherDate(){
+    const datelab=document.getElementById('date-label');
+    const today = new Date();
+    const weekDays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const weekDay=weekDays[today.getDay()];
+    const day=today.getDate().toString();
+    const month=months[today.getMonth()];
+    const year=today.getFullYear();
+    const formatDate=`${weekDay}, ${month} ${day}th ${year}`;
+    datelab.innerHTML=formatDate;
+}

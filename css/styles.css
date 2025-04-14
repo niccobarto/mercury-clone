@@ -1,11 +1,21 @@
 body{
     margin: 0;
     padding:0;
+    --font-primary: "Noto Serif", Helvetica, serif;
+    --font-secondary: "Noto Sans", Helvetica, sans-serif;
+}
+html a{
+    text-decoration: none;
 }
 header{
-    height: auto;
+    height: 216px;
 }
-
+ul{
+    list-style: none;
+}
+.secondary-bar{
+    border-bottom: 1px solid grey;
+}
 /*flex: x y z -> x=flex-grow,y=flex-shrink,z=flex-basis
 flex-grow:specifica quanto un oggetto flex cresce rispetto al resto
 flex-shrink:specifica quanto un oggetto flex si ridurrà rispetto agli altri elementi
@@ -16,12 +26,13 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     flex-direction: row;
     align-items:center;
     background-color: transparent;
-    padding:1rem 2rem;
 }
 .hamburger-menu{
     display:flex;
     align-items: center;
     flex-direction: row;
+    gap:0.5rem;
+    padding:0.9375rem
 }
 .hamburger{
     display: flex;
@@ -38,12 +49,16 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .hamburger-menu>span{ /*Solo gli span figli diretti di hamburger-menu*/
     font:normal 600 .9375em / 1.0666666667 "Noto Sans", Helvetica, sans-serif;
 }
-.top-bar-container{
+.top-bar-container,.main-bar-container{
     display:flex;
+    flex-direction:row;
     align-items: center;
     justify-content: space-between;
-    margin-right: 1.4rem;   /* Spazio a destra della barra */
-    margin-left: 1.4rem;    /* Spazio tra sub-bar e search-bar */
+    margin:0 auto;
+    width: 95%;
+}
+.top-bar-container{
+    height: 64px;
 }
 .sections-container {
     display: flex;
@@ -51,18 +66,19 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     justify-content: flex-start;
     min-width: 0;
     flex:1;
+    height: 64px;
 }
 .title-container{
-    display:flex;
+    display:none;
     align-items: center;
     justify-content: center;
     flex:0 1 auto;
     min-width: 0;
+    height: 64px;
 }
 .title-img {
     max-height: 70px;
     height: auto;
-    width: auto;
 }
 .right-container{
     display: flex;
@@ -70,6 +86,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     justify-content: flex-end;
     min-width: 0;
     flex:1;
+    height: 64px;
 }
 .sub-container{
     display:flex;
@@ -78,12 +95,13 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .search-container {     /* Viene dopo sub-bar nella top-bar */
     display: flex;
     justify-self: flex-end;
+    padding:0 0.6rem;
 }
 .sub-container ul {
-    list-style: none;           /* Rimuove i punti dell'elenco */
     display: flex;              /* Disposizione orizzontale */
     gap: 15px;                  /* Spazio tra i due bottoni */
     padding:0;
+    margin:0;
 }
 /* Stile dei link (bottoni) */
 .sub-container a {
@@ -111,8 +129,119 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .search-container>button{
     border:none;
     background-color: transparent;
+    padding:0;
 }
 .search-container-icon{
     width: 23px;
     height: 23px;
+}
+.primary-bar{
+    display:flex;
+    flex-direction: column;
+}
+.main-bar-container{
+    height: 80px;
+}
+.weather-date{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    flex:1;
+}
+.weather-date-inside{
+    padding:0.9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.weather-container{
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 2px;
+}
+.weather-container>a{
+    font-family: "Noto Sans", Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: #0a0908;
+}
+.weather-container img{
+    height: 26px;
+    width: 26px;
+}
+.date-container>#date-label{
+    font: normal 600 .9375em / 1.0666666667 "Noto Sans", Helvetica, sans-serif;
+    color:#0a0908;
+}
+.date-container{
+    margin-left: 0.8em;
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.date-container>a{
+    margin-top: 4.5%;
+
+}
+#today-label{
+    color:#0a0908;
+    font-family: "Noto Sans", Helvetica, sans-serif;
+    font-size:0.75em;
+    font-weight: 500;
+}
+#today-label:hover{
+    text-decoration:underline;
+}
+.main-title-container{
+    display:flex;
+    align-items: center;
+    flex:0 1 auto;
+    min-width: 0;
+}
+.sponsor-ship-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    flex:1;
+    width: 100%;
+}
+.menu-section{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-section ul{
+    display: flex;              /* Disposizione orizzontale */
+    gap: 15px;                  /* Spazio tra i due bottoni */
+    padding:0;
+}
+.menu-section li>a{
+    padding: 0 .08823529412em;
+    font: normal 600 .9375em / 1.7333333333 "Noto Sans", Helvetica, sans-serif;
+    color:#0a0908;
+    text-decoration: none;
+}
+/*---media--*/
+@media(max-width:1040px){
+    .sub-container { display: none; }
+
+    .title-container {
+        display: flex;
+        flex: 1 1 0;
+        justify-content: center;
+        min-width: 0;
+    }
+
+    .right-container {
+        flex: 1 1 0;
+        justify-content: flex-end;
+        min-width: 0;
+    }
+    .sections-container #sections-label { display: none; }
+    .main-bar-container { display: none; }
+    .menu-section { display: none; }
 }

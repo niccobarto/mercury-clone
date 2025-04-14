@@ -6,7 +6,7 @@
     <script src="js/scripts.js" defer></script>
     <title>The Mercury News</title>
 </head>
-<body>
+<body  onload="weatherDate()">
 <header>
     <div class="primary-bar">
         <div class="secondary-bar">
@@ -21,7 +21,7 @@
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <span>All Sections</span>
+                                <span id="sections-label">All Sections</span>
                             </div>
                         </nav>
                     </div>
@@ -43,11 +43,51 @@
                     </div>
 
                 </div>
-            </div>
-            <div class="main-header">
-                <h1 class="site-logo">The Mercury News</h1>
-            </div>
+                <div class="main-bar-container">
+                    <div class="weather-date">
+                        <div class="weather-date-inside">
+                            <div class="weather-container">
+                                <a target="_blank" href="#" title="Current weather">
+                                    <a id="degree-label">27°C</a>
+                                    <img id="weather-icon" class="weather-icon" alt="Weather Icon" src="images/sun.svg">
+                                </a>
+                            </div>
+                            <div class="date-container">
+                                <span id="date-label"></span>
+                                <a title="Link to E-edition opens in a new window" target="_blank" href="#">
+                                    <span id="today-label">Today's e-Edition</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="main-title-container">
+                        <img src="https://placehold.co/401x48?text=The+Mercury+News" class="title-img" alt="The Mercury News">
+                    </div>
+                    <div class="sponsor-ship-container"></div>
+                </div>
+                <div class="menu-section">
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Local</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Obituaries</a></li>
+                            <li><a href="#">Things to Do</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Real Estate</a></li>
+                            <li><a href="#">Opinion</a></li>
+                            <li><a href="#">Marketplace</a></li>
+                            <li><a href="#">e-Edition</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="trending-container">
+                <div class="trending-container-wrapped">
+
+                </div>
+            </div>
         </div>
     </div>
 
