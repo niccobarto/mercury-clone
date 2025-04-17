@@ -61,9 +61,33 @@ function toggleSearchBar(){
 
     if (isOpen){
         form.querySelector('.search-input')?.focus();
+        document.body.classList.add('noscroll');
+    }else{
+        document.body.classList.remove('noscroll');
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const sentinella = document.querySelector('.sentinella-stick');
+    const fixedTop = document.querySelector('.fixed-top');
 
+    if (!sentinella || !fixedTop) return;
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (!entry.isIntersecting) {
+                fixedTop.classList.add('fixed');
+            } else {
+                fixedTop.classList.remove('fixed');
+            }
+        },
+        {
+            root: null,
+            threshold: 0
+        }
+    );
+
+    observer.observe(sentinella);
+});
 window.addEventListener('load', hideOverflowingItems);
 window.addEventListener('resize', hideOverflowingItems);
 window.addEventListener('DOMContentLoaded', weatherDate);

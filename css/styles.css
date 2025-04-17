@@ -4,6 +4,9 @@ body{
     --font-primary: "Noto Serif", Helvetica, serif;
     --font-secondary: "Noto Sans", Helvetica, sans-serif;
 }
+body.noscroll {
+    overflow: hidden;
+}
 p{
     margin:0;
 }
@@ -66,6 +69,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .top-bar-container{
     position:relative;
     height: 64px;
+
 }
 .right-main-container{
     display:flex;
@@ -408,3 +412,56 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 
 /* quando .top-bar-form ha la classe, mostra la search‑bar… */
 .top-bar-form.search-open .search-form { display: flex; }
+/*---content-style---*/
+.content{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.header-division{
+    height: 250px;
+}
+.primary-section{
+    margin-top:32px;
+    height: 100px;
+}
+.feature-container{
+    display: grid;
+    height: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.feature-container > div{
+    background: cyan;
+    width: 100%;
+    height: 100%;
+}
+@media(min-width:1000px) {
+    margin-bottom:16px;
+    width: 100%;
+}
+.fixed-top {
+    position: relative;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.fixed-top.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.fixed-top.fixed .title-container{
+    visibility: visible;
+}
+/* (opzionale) per evitare che il contenuto venga coperto */
+.fixed-top.fixed + .main-bar-container {
+    margin-top: 64px; /* stessa altezza della barra */
+}
+.sentinella-stick {
+    position:absolute;
+    top:50px;
+    height: 1px;
+    width: 100%;
+}
