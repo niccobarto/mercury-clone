@@ -362,6 +362,19 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     cursor: pointer;
 
 }
+.search-overlay{
+    margin-top:64px;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: none;
+    z-index: 18;           /* sotto la barra (z‑index:20) */
+}
+
+/* overlay visibile quando .top-bar-form è aperta */
+.top-bar-form.search-open .search-overlay{
+    display: block;        /* <-- descendant, non sibling */
+}
 /*---media--*/
 @media(max-width:1040px){
     .sub-container { display: none; }

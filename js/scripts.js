@@ -50,19 +50,18 @@ function hideOverflowingItems() {
     });
 }
 
-function toggleSearchBar () {
-    const form = document.getElementById('search-bar-form');
-    if (!form) return console.error('#search-bar-form non trovato');
+function toggleSearchBar(){
+    const form    = document.getElementById('search-bar-form');
+    if (!form) return;
 
-    // adesso il wrapper è .top-bar-form (non .top-bar-container)
     const wrapper = form.closest('.top-bar-form');
-    if (!wrapper) return console.error('.top-bar-form non trovata');
+    if (!wrapper) return;
 
-    // alterno la classe
-    const isOpen = wrapper.classList.toggle('search-open');
+    const isOpen  = wrapper.classList.toggle('search-open');
 
-    // focus quando si apre
-    if (isOpen) form.querySelector('.search-input')?.focus();
+    if (isOpen){
+        form.querySelector('.search-input')?.focus();
+    }
 }
 
 window.addEventListener('load', hideOverflowingItems);
