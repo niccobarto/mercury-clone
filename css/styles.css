@@ -390,38 +390,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .top-bar-form.search-open .search-overlay{
     display: block;        /* <-- descendant, non sibling */
 }
-/*---media--*/
-@media(max-width:1040px){
-    .sub-container { display: none; }
-    .navbar{width: 50px;}
-    .title-container {
-        visibility: visible;
-    }
-    .right-container {
-        min-width: 0;
-        width: 23%;
-    }
-    .sections-container{
-        width: 33%;
-    }
-    .top-bar-form.search-open .title-container { visibility: visible; }
-    .sections-container #sections-label { display: none; }
-    .main-bar-container { display: none; }
-    .menu-section { display: none; }
-    .trending-container { display: none; }
-    .menu-sub-digit{display: flex;}
-}
-@media (min-width: 1040px) {          /* viewport ≥ 1040 px */
-    .top-bar-form.search-open .title-container {
-        visibility: visible;
-    }
-}
-@media (max-width: 800px) {
-    .sections-container,.right-main-container{
-        width: auto;
-    }
 
-}
 /* search‑bar visibile SOLO quando .top-bar-container ha la classe */
 .top-bar-form .search-form { display: none; }
 
@@ -486,7 +455,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     letter-spacing: -0.01em;
     display: inline;
 }
-.feature-top .entry-title{
+.feature-top .entry-title,.main-photo-article .entry-title{
     font: normal 700 1.5em / 1.16 "Noto Serif", Helvetica, serif;
     letter-spacing: -0.03em;
     margin-bottom: 0.36em;
@@ -576,6 +545,10 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 h4{
     display: inline;
 }
+figure{
+    margin-bottom: 0.5em;
+
+}
 .time-info{
     width: auto;
     display: inline-block;
@@ -625,7 +598,7 @@ h4{
 .newsletter-simple span{
     color:#fff;
 }
-.headline-item a,.headline-item-1 a{
+.headline-item a,.headline-item-1 a,.photo-item,.photo-item-last{
     font: normal 600 .9375em / 1.2666666667 "Noto Serif", Helvetica, serif;
 }
 .fixed-top {
@@ -714,6 +687,13 @@ h4{
 .recommended-item a span{
     font: normal 600 1.0625em / 1.0588235294 "Noto Serif", Helvetica, serif;
 }
+.section-highlight-content .section-feature{
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+.landing-item .image-article-container{
+    padding-bottom: 10px;
+}
 .landing-content{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -751,8 +731,65 @@ h4{
 .right {
     transform: rotate(-45deg);
 }
-
+.main-photo-article-container{
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    column-gap: 20px;
+}
+.side-photo-article{
+    display: flex;
+    gap:10px;
+}
+.side-photo-article figure{
+    width: 90px;
+    flex:1 0 auto
+}
+.photo-item{
+    border-bottom: 1px solid #d7d6d2;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+}
 /*Parte responsive primo articolo*/
+/*---media--*/
+@media(max-width:1040px){
+    .sub-container { display: none; }
+    .navbar{width: 50px;}
+    .title-container {
+        visibility: visible;
+    }
+    .right-container {
+        min-width: 0;
+        width: 23%;
+    }
+    .sections-container{
+        width: 33%;
+    }
+    .top-bar-form.search-open .title-container { visibility: visible; }
+    .sections-container #sections-label { display: none; }
+    .main-bar-container { display: none; }
+    .menu-section { display: none; }
+    .trending-container { display: none; }
+    .menu-sub-digit{display: flex;}
+}
+@media (min-width: 1040px) {          /* viewport ≥ 1040 px */
+    .top-bar-form.search-open .title-container {
+        visibility: visible;
+    }
+}
+@media (max-width: 800px) {
+    .sections-container,.right-main-container{
+        width: auto;
+    }
+    .primary-section{
+        grid-template-columns: 1fr;
+    }
+    .sidebar-ad-container{
+        display: none;
+    }
+    .main-photo-article .article-content{
+        display: none;
+    }
+}
 @media(max-width: 1300px) {
     .feature-container{
         grid-template-columns: 2fr 1fr;
@@ -781,5 +818,22 @@ h4{
     }
     .article-info{
         width: auto !important;
+    }
+}
+
+@media(max-width: 1035px) {
+    .main-photo-article-container{
+        grid-template-columns: 1fr;
+    }
+    .main-photo-article-container ul{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 20px;
+    }
+}
+@media(max-width: 635px) {
+    .main-photo-article-container ul{
+        display:block;
     }
 }
