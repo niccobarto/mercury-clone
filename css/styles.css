@@ -417,7 +417,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     column-gap: 15px;
 }
 .feature-top>article>.article-info{
-    width: calc(43.75% - 0.71rem);
+    width: calc(58% - 0.71rem);
 }
 .article-main-title{
     font: normal 700 1.40em / 1.16 "Noto Serif", Helvetica, serif;
@@ -533,7 +533,6 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .content img{
     max-width: 100%;
     height: auto;
-    width: 100%;
 }
 .content a{
     display: inline;
@@ -549,6 +548,21 @@ figure{
     margin-bottom: 0.5em;
 
 }
+.image-article-container {
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.image-article-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 .time-info{
     width: auto;
     display: inline-block;
@@ -691,9 +705,6 @@ figure{
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
-.landing-item .image-article-container{
-    padding-bottom: 10px;
-}
 .landing-content{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -741,8 +752,9 @@ figure{
     gap:10px;
 }
 .side-photo-article figure{
-    width: 90px;
-    flex:1 0 auto
+    align-content:start;
+    max-width: 90px;
+    flex:1 0 100%;
 }
 .photo-item{
     border-bottom: 1px solid #d7d6d2;
