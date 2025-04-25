@@ -88,6 +88,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(sentinella);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Selezioniamo tutti gli span con classe 'hidden-row'
+    const toggles = document.querySelectorAll('.footer-menus .menu-item .hidden-row');
+
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            // Troviamo il <ul.footer-menu> fratello all'interno dello stesso <li>
+            const footerMenu = this.parentElement.querySelector('.footer-menu');
+
+            // Alterniamo la visibilità
+            if (footerMenu.style.display === 'block') {
+                footerMenu.style.display = 'none';
+            } else {
+                footerMenu.style.display = 'block';
+            }
+        });
+    });
+});
 window.addEventListener('load', hideOverflowingItems);
 window.addEventListener('resize', hideOverflowingItems);
 window.addEventListener('DOMContentLoaded', weatherDate);
