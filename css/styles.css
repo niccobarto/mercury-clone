@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding:0;
+    font-family: 'Roboto Condensed', Roboto, Calibri, Candara, Arial, sans-serif;
     --font-primary: "Noto Serif", Helvetica, serif;
     --font-secondary: "Noto Sans", Helvetica, sans-serif;
 }
@@ -97,7 +98,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     width: 33%;
 }
 .title-img {
-    height: auto;
+    max-height: 48px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -417,10 +418,9 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     column-gap: 15px;
 }
 .feature-top>article>.article-info{
-    width: calc(58% - 0.71rem);
+    width: calc(43.75% - 0.71rem);
 }
 .article-main-title{
-    font: normal 700 1.40em / 1.16 "Noto Serif", Helvetica, serif;
     letter-spacing: -0.03em;
     margin-bottom: .3636363636em;
 }
@@ -438,12 +438,16 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     column-gap: 15px;
     row-gap: 25px;
 }
+/*
 .feature-bottom-title>a{
     display: block !important;
 }
-.feature-bottom-item a{
-    font: normal 600 1.125em / 1.2222222222 "Noto Serif", Helvetica, serif;
+ */
+.feature-bottom-item .entry-title{
+    font: normal 700 1.30em / 1.2222222222 "Noto Serif", Helvetica, serif;
     color:black;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
 }
 .article-title-container{
     line-height: 1.13;
@@ -455,10 +459,14 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     letter-spacing: -0.01em;
     display: inline;
 }
-.feature-top .entry-title,.main-photo-article .entry-title{
-    font: normal 700 1.5em / 1.16 "Noto Serif", Helvetica, serif;
+#superior-image{
+    width: calc(56.25% - 0.55rem);
+}
+.feature-top .entry-title{
+    font: normal 700 1.56em / 1.16 "Noto Serif", Helvetica, serif;
     letter-spacing: -0.03em;
     margin-bottom: 0.36em;
+    font-size: 1.8125em;
 }
 .related-main>h3{
     font: normal 600 0.75em / 1.25 "Noto Serif", Helvetica, serif;
@@ -732,15 +740,28 @@ figure{
     align-items: flex-start;
     gap:0.2em;
 }
-
-.arrow {
+.black-border{
+    border: solid black;
+}
+.cyan-border{
     border: solid #295c75;
+}
+
+.smaller-arrow{
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+}
+.arrow {
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 5px;
 }
 .right {
     transform: rotate(-45deg);
+}
+.left {
+    transform: rotate(135deg);
 }
 .main-photo-article-container{
     display: grid;
@@ -761,6 +782,204 @@ figure{
     margin-bottom: 1em;
     padding-bottom: 0.5em;
 }
+.main-photo-article .entry-title{
+    font: normal 700 1.35em / 1.16 "Noto Serif", Helvetica, serif;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.36em;
+}
+.category-element{
+    display:flex;
+    justify-content: space-between;
+}
+.main-category-article{
+    width: calc(68.75% - 0.4rem);
+}
+.main-category-article article{
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+}
+.main-category-article figure{
+    width: calc(43.75% - 0.71rem);
+}
+.main-category-article .article-info{
+    width: calc(56.25% - 0.55rem);
+}
+.main-category-article .entry-title{
+    font: normal 700 1.625rem / 1.1666666667 "Noto Serif", Helvetica, serif;
+}
+.category-list{
+    width: calc(31.25% - 0.86rem);
+}
+.full-categories{
+    margin-bottom: 2em;
+}
+.full-categories .content-area{
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+}
+.calendar-section{
+    margin: 3% 0 3% 0;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.calendar-container{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+.top-calendar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 0;
+    width: 95%;
+}
+.calendar-title{
+    font-family: 'Roboto Condensed', Roboto, Calibri, Candara, Arial, sans-serif;
+    color:#3b3b3b!important;
+    overflow: hidden;
+    display: inline-block;
+    line-height: 22px;
+    min-height: 19px;
+    font-size: 20px;
+
+}
+.calendar-interactions{
+    display: flex;
+    flex-shrink: 0;
+}
+.calendar-icon {
+    display: inline-flex;        /* ✅ inline-flex così non rompe il flow */
+    align-items: center;         /* ✅ allinea verticalmente */
+    gap: 6px;                    /* ✅ spazio tra img e testo */
+    padding: 4px;
+    background-color: #fff;
+    color: #3b3b3b;
+    font-size: 12px;
+    line-height: 15px;
+    cursor: pointer;
+    margin-left: 4px;
+    margin-bottom: 4px;
+    text-decoration: none;       /* evita sottolineatura */
+}
+
+.calendar-icon img {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.calendar-icon span {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+.internal-calendar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    min-width: 0;
+}
+.internal-calendar-container>a{
+    flex:0 0 auto;
+    align-content: center;
+    min-width: 24px;
+    text-align: center;
+}
+.events-days-container{
+    flex: 1 1 auto;
+    overflow: hidden;
+    min-width: 0;
+}
+.events-container{
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+}
+.event-item{
+    width: 148px;
+    max-width: 190px;
+    margin-right: 10px;
+    background-color: #006394;
+}
+
+.background-event-image{
+    height: 130px;
+    max-height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+.background-event-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-width: none;
+}
+.image-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    font-size: 11px;
+    padding-left: 2px;
+}
+.event-description{
+    height: 42px;
+    color:white;
+}
+.eventName{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 13px;
+    line-height: 14px;
+    height: 28px;
+}
+.eventCaption{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+}
+.site-footer{
+    font-family: "Noto Sans", Helvetica, sans-serif;
+    padding-top: 2em;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ababab;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.35) inset;
+}
+
+.footer-logo{
+    display: flex;
+    max-width: 1520px;
+    margin: 0 auto 0 auto;
+    padding-left: 2.5%;
+}
+.footer-logo .logo{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-logo img{
+    width: 100%;
+    max-height: 48px;
+    object-fit: contain;
+}
+
 /*Parte responsive primo articolo*/
 /*---media--*/
 @media(max-width:1040px){
@@ -797,6 +1016,7 @@ figure{
     }
     .sidebar-ad-container{
         display: none;
+
     }
     .main-photo-article .article-content{
         display: none;
@@ -828,7 +1048,7 @@ figure{
     #superior-image{
         display: none;
     }
-    .article-info{
+    .feature-top .article-info{
         width: auto !important;
     }
 }
