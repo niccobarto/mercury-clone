@@ -1074,6 +1074,10 @@ figure{
     text-indent: -9999px;
     width: 180px;
 }
+.item-follow .subscribe-button:hover{
+    background-color: #007ab8;
+    text-decoration: underline;
+}
 /*Parte responsive primo articolo*/
 /*---media--*/
 /*FOOTER*/
