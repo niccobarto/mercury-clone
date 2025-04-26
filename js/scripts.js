@@ -1,112 +1,237 @@
-function toggleMenu() {
-    const hamburger = document.getElementById('hamburger');
-
-    // Prendi tutti gli span dentro il div hamburger
-    const spans = hamburger.querySelectorAll('span');
-
-    // Prendi lo stile del primo span (o quello che ti interessa modificare)
-    const currentMargin = window.getComputedStyle(spans[0]).margin;
-
-    if (currentMargin !== "0px") {
-        for (let i = 0; i < hamburger.querySelectorAll('span').length; i++) {
-            spans[i].style.margin = "0px";
-        }
-    } else {
-        for (let i = 0; i < hamburger.querySelectorAll('span').length; i++) {
-            spans[i].style.margin = "1px";
-        }
-    }
-}
-
-function weatherDate(){
-    const datelab=document.getElementById('date-label');
+// Funzione: Formatta data
+function formatDate() {
     const today = new Date();
-    const weekDays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-    const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
-    const weekDay=weekDays[today.getDay()];
-    const day=today.getDate().toString();
-    const month=months[today.getMonth()];
-    const year=today.getFullYear();
-    const formatDate=`${weekDay}, ${month} ${day}th ${year}`;
-    datelab.innerHTML=formatDate;
+    const weekDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    return `${weekDays[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}th ${today.getFullYear()}`;
 }
 
+// Funzioni: Scrive la data nei punti giusti
+function weatherDate() {
+    const datelab = document.getElementById('date-label');
+    if (datelab) datelab.innerHTML = formatDate();
+}
+function weatherDateNav() {
+    const datelab = document.getElementById('nav-date-label');
+    if (datelab) datelab.innerHTML = formatDate();
+}
 
+// Funzione: Nasconde i trending che sforano
 function hideOverflowingItems() {
     const container = document.querySelector('.trending-nav');
     const items = document.querySelectorAll('.trending-list li');
+    if (!container) return;
 
-    items.forEach(item => {
-        item.style.display = 'inline-block'; // Reset visibilità
-    });
+    items.forEach(item => item.style.display = 'inline-block');
 
     const containerRight = container.getBoundingClientRect().right;
 
     items.forEach(item => {
-        const itemRight = item.getBoundingClientRect().right;
-        if (itemRight > containerRight) {
-            item.style.display = 'none'; // Se va fuori, lo nascondo
+        if (item.getBoundingClientRect().right > containerRight) {
+            item.style.display = 'none';
         }
     });
 }
 
-function toggleSearchBar(){
-    const form    = document.getElementById('search-bar-form');
-    if (!form) return;
+// Funzione: Apri/chiudi la searchbar
+function toggleSearchBar() {
+    const form = document.getElementById('search-bar-form');
+    const wrapper = form?.closest('.top-bar-form');
+    if (!form || !wrapper) return;
 
-    const wrapper = form.closest('.top-bar-form');
-    if (!wrapper) return;
+    const isOpen = wrapper.classList.toggle('search-open');
 
-    const isOpen  = wrapper.classList.toggle('search-open');
-
-    if (isOpen){
+    if (isOpen) {
         form.querySelector('.search-input')?.focus();
         document.body.classList.add('noscroll');
-    }else{
+    } else {
         document.body.classList.remove('noscroll');
     }
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const sentinella = document.querySelector('.sentinella-stick');
-    const fixedTop = document.querySelector('.fixed-top');
 
-    if (!sentinella || !fixedTop) return;
+// Funzione: Apri/chiudi il menu sections
+function toggleSectionsForm() {
+    const form = document.getElementById('sections-form');
+    const overlay = document.querySelector('.search-overlay');
+    if (!form || !overlay) return;
 
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            if (!entry.isIntersecting) {
-                fixedTop.classList.add('fixed');
-            } else {
-                fixedTop.classList.remove('fixed');
-            }
-        },
-        {
-            root: null,
-            threshold: 0
+    const isOpen = form.classList.toggle('open');
+
+    if (isOpen) {
+        overlay.style.display = 'block';
+        document.body.classList.add('noscroll');
+    } else {
+        overlay.style.display = 'none';
+        document.body.classList.remove('noscroll');
+    }
+}
+
+// Esecuzione principale
+document.addEventListener('DOMContentLoaded', function() {
+    const searchButton = document.querySelector('.search-container-icon');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const hamburgerIcon = document.getElementById('hamburger');
+    const searchWrapper = document.querySelector('.top-bar-form');
+    const sectionsForm = document.getElementById('sections-form');
+    const overlay = document.querySelector('.search-overlay');
+
+    function openSearchBar() {
+        if (!searchWrapper.classList.contains('search-open')) {
+            searchWrapper.classList.add('search-open');
+            overlay.style.display = 'block';
+            document.body.classList.add('noscroll');
+            const input = searchWrapper.querySelector('.search-input');
+            if (input) input.focus();
         }
-    );
+    }
 
-    observer.observe(sentinella);
-});
+    function closeSearchBar() {
+        if (searchWrapper.classList.contains('search-open')) {
+            searchWrapper.classList.remove('search-open');
+            overlay.style.display = 'none';
+            document.body.classList.remove('noscroll');
+        }
+    }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Selezioniamo tutti gli span con classe 'hidden-row'
-    const toggles = document.querySelectorAll('.footer-menus .menu-item .hidden-row');
+    function openSectionsMenu() {
+        if (!sectionsForm.classList.contains('open')) {
+            sectionsForm.classList.add('open');
+            overlay.style.display = 'block';
+            document.body.classList.add('noscroll');
+        }
+    }
 
-    toggles.forEach(toggle => {
-        toggle.addEventListener('click', function () {
-            // Troviamo il <ul.footer-menu> fratello all'interno dello stesso <li>
-            const footerMenu = this.parentElement.querySelector('.footer-menu');
+    function closeSectionsMenu() {
+        if (sectionsForm.classList.contains('open')) {
+            sectionsForm.classList.remove('open');
+            overlay.style.display = 'none';
+            document.body.classList.remove('noscroll');
+            toggleHamburgerIcon(false);
+        }
+    }
 
-            // Alterniamo la visibilità
-            if (footerMenu.style.display === 'block') {
-                footerMenu.style.display = 'none';
+    function toggleHamburgerIcon(isMenuOpen) {
+        const spans = hamburgerIcon.querySelectorAll('span');
+        if (isMenuOpen) {
+            spans[0].style.transform = 'rotate(46deg) translate(3px, 3px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(3px, -3px)';
+        } else {
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
+        }
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeSectionsMenu(); // Chiudo il menu se è aperto
+
+            if (searchWrapper.classList.contains('search-open')) {
+                closeSearchBar();
             } else {
-                footerMenu.style.display = 'block';
+                openSearchBar();
+            }
+        });
+    }
+
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeSearchBar(); // Chiudo la search se è aperta
+
+            if (sectionsForm.classList.contains('open')) {
+                closeSectionsMenu();
+                toggleHamburgerIcon(false); // Torna hamburger
+            } else {
+                openSectionsMenu();
+                toggleHamburgerIcon(true);  // Diventa X
+            }
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            if (searchWrapper.classList.contains('search-open')) {
+                closeSearchBar();
+            }
+            if (sectionsForm.classList.contains('open')) {
+                closeSectionsMenu();
+                toggleHamburgerIcon(false); // Torna hamburger se chiudo il menu
+            }
+        });
+    }
+
+    // 🔥 --- QUESTO TUTTO LO DEVI LASCIARE ---
+
+    // Apre/chiude footer menu (mobile)
+    const toggles = document.querySelectorAll('.footer-menus .menu-item .hidden-row');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const footerMenu = this.parentElement.querySelector('.footer-menu');
+            if (footerMenu) {
+                footerMenu.style.display = (footerMenu.style.display === 'block') ? 'none' : 'block';
             }
         });
     });
+
+    // Menu dropdown nei sections
+    const sectionLinks = document.querySelectorAll('.section-item > a');
+    sectionLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const parentItem = this.parentElement;
+            const dropdownMenu = parentItem.querySelector('.insite-list');
+
+            if (dropdownMenu) {
+                if (dropdownMenu.classList.contains('open')) {
+                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                    requestAnimationFrame(() => {
+                        dropdownMenu.style.maxHeight = "0px";
+                        dropdownMenu.style.opacity = "0";
+                    });
+                    dropdownMenu.addEventListener('transitionend', function handler(e) {
+                        if (e.propertyName === 'max-height') {
+                            dropdownMenu.classList.remove('open');
+                            dropdownMenu.style.maxHeight = null;
+                            dropdownMenu.removeEventListener('transitionend', handler);
+                        }
+                    });
+                } else {
+                    dropdownMenu.classList.add('open');
+                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                    dropdownMenu.style.opacity = "1";
+                }
+            }
+        });
+    });
+
+    // Sticky top-bar
+    const sentinella = document.querySelector('.sentinella-stick');
+    const fixedTop = document.querySelector('.fixed-top');
+    if (sentinella && fixedTop) {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                fixedTop.classList.toggle('fixed', !entry.isIntersecting);
+            },
+            { root: null, threshold: 0 }
+        );
+        observer.observe(sentinella);
+    }
+
+    // Scrive la data corrente
+    weatherDate();
+    weatherDateNav();
 });
+
+// E gli eventi di resize e load
 window.addEventListener('load', hideOverflowingItems);
 window.addEventListener('resize', hideOverflowingItems);
-window.addEventListener('DOMContentLoaded', weatherDate);
+
+
+// Eventi al caricamento pagina
+window.addEventListener('load', hideOverflowingItems);
+window.addEventListener('resize', hideOverflowingItems);

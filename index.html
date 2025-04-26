@@ -52,16 +52,374 @@
                                     </div>
                                     <div class="search-container">
                                         <button type="submit">
-                                            <img src="images/search-bar-icon.png" class="search-container-icon" alt="search icon" onclick="toggleSearchBar()">
+                                            <img src="images/search-bar-icon.png" class="search-container-icon" alt="search icon">
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                        <form class="sections-form" id="sections-form">
+                            <div class="main-section-list">
+                                <div class="subscribe-button-container">
+                                    <a href="#" class="subscribe-button">
+                                        <span>Subscribe Now</span>
+                                    </a>
+                                </div>
+                                <div class="weather-container">
+                                    <div class="weather-date-inside">
+                                        <div class="weather-container">
+                                            <a target="_blank" href="#" title="Current weather">
+                                                <span id="nav-degree-label">27°C</span>
+                                                <img id="nav-weather-icon" class="weather-icon" alt="Weather Icon" src="images/sun.svg">
+                                            </a>
+                                        </div>
+                                        <div class="date-container">
+                                            <span id="nav-date-label"></span>
+                                            <a title="Link to E-edition opens in a new window" target="_blank" href="#">
+                                                <span id="nav-today-label">Today's e-Edition</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="sections-list">
+                                    <li class="homePage-item">
+                                        <a href="#">
+                                            <img src="images/house.svg">
+                                            <span>Home Page</span>
+                                        </a>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>News</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">News</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Latest Headlines</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Crime and Public Safety</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">California News</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">National News</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">World News</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Politics</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Education</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Environment</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Science</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Health</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Mr. Roadshow</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Transportation</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Weather</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Local</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Bay Area</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">San Jose</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Santa Clara County</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Peninsula</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">San Mateo County</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Alameda County</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Santa Cruz County</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Sal Pizarro</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Obituaries</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Obituaries</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">News Obituaries</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Place an Obituary</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Opinion</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Opinion</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Editorials</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Opinion Columnists</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Letters to the Editor</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Commentary</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Cartoons</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Election Endorsement</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Sports</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Sports</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">San Fransisco 49ers</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">San Fransisco Giants</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Golden State Warriors</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Raiders</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Athletics</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">San Jose Sharks</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">San Jose Earthquakes</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Bay FC</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">College Sports</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Wilner Hotline</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">High School Sports</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Other Sports</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Sports Columnists</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Sports Blogs</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Golden State Valkyries</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Things To Do</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Entertainment</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Things To Do</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Restaurants, Food and Drink</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Celebrities</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">TV Streaming</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Movies</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Music</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Theater</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Lifestyle</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Cannabis</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Advice</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Travel</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Pets and Animals</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Comics</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Puzzles and Games</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Horoscopes</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Event Calendar</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Business</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Business</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Housing</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Economy</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Technology</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Best Reviews</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">SiliconValley.com</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Marketplace</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Branded Content</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">Partner Content</a>
+                                            </li>
+                                            <li class="insite-list-item">
+                                                <a href="#">BayArena.com</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Real Estate</span>
+                                        </a>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Branded Content</span>
+                                            <i class="smaller-arrow right black-border"></i>
+                                        </a>
+                                        <ul class="insite-list">
+                                            <li class="insite-list-item">
+                                                <a href="#">Paid Content by Brandpoint</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Subscribe</span>
+                                        </a>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Advertise</span>
+                                        </a>
+                                    </li>
+                                    <li class="section-item">
+                                        <a href="#">
+                                            <span>Log in</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="section-form-footer">
+                                <div class="section-footer-container">
+                                    <span> Get Morning Report and other email newsletters</span>
+                                    <a href="#" class="subscribe-button">
+                                        <span>Sign Up</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
                         <form class="search-form" id="search-bar-form">
                             <div class="search-input-bar">
-                            <span class="search-bar-span">
+                                <span class="search-bar-span">
                                 <img src="images/search-bar-icon.png" class="search-bar-icon" alt="search icon">
                             </span>
                                 <input class="search-input" type="text" name="search" placeholder="Type your search">
@@ -72,8 +430,7 @@
                                 </div>
                             </div>
                         </form>
-
-                        <div class="search-overlay" onclick="toggleSearchBar()"></div>
+                        <div class="search-overlay"></div>
                     </div>
                 </div>
                 <div class="sentinella-stick"></div>
