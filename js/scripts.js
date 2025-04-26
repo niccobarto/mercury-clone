@@ -127,8 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchButton.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            closeSectionsMenu(); // Chiudo il menu se è aperto
-
+            closeSectionsMenu();
             if (searchWrapper.classList.contains('search-open')) {
                 closeSearchBar();
             } else {
@@ -141,14 +140,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburgerMenu.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            closeSearchBar(); // Chiudo la search se è aperta
-
+            closeSearchBar();
             if (sectionsForm.classList.contains('open')) {
                 closeSectionsMenu();
-                toggleHamburgerIcon(false); // Torna hamburger
+                toggleHamburgerIcon(false);
             } else {
                 openSectionsMenu();
-                toggleHamburgerIcon(true);  // Diventa X
+                toggleHamburgerIcon(true);
             }
         });
     }
@@ -160,14 +158,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             if (sectionsForm.classList.contains('open')) {
                 closeSectionsMenu();
-                toggleHamburgerIcon(false); // Torna hamburger se chiudo il menu
+                toggleHamburgerIcon(false);
             }
         });
     }
 
-    // 🔥 --- QUESTO TUTTO LO DEVI LASCIARE ---
-
-    // Apre/chiude footer menu (mobile)
+    // Footer mobile (ok)
     const toggles = document.querySelectorAll('.footer-menus .menu-item .hidden-row');
     toggles.forEach(toggle => {
         toggle.addEventListener('click', function() {
@@ -178,38 +174,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Menu dropdown nei sections
+    // Sections menu interno
     const sectionLinks = document.querySelectorAll('.section-item > a');
     sectionLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const parentItem = this.parentElement;
             const dropdownMenu = parentItem.querySelector('.insite-list');
+            const arrowIcon = this.querySelector('i');
 
-            if (dropdownMenu) {
-                if (dropdownMenu.classList.contains('open')) {
-                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
-                    requestAnimationFrame(() => {
-                        dropdownMenu.style.maxHeight = "0px";
-                        dropdownMenu.style.opacity = "0";
-                    });
-                    dropdownMenu.addEventListener('transitionend', function handler(e) {
-                        if (e.propertyName === 'max-height') {
-                            dropdownMenu.classList.remove('open');
-                            dropdownMenu.style.maxHeight = null;
-                            dropdownMenu.removeEventListener('transitionend', handler);
-                        }
-                    });
-                } else {
-                    dropdownMenu.classList.add('open');
-                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
-                    dropdownMenu.style.opacity = "1";
+            if (!dropdownMenu) return;
+
+            if (dropdownMenu.classList.contains('open')) {
+                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                dropdownMenu.offsetHeight;
+                dropdownMenu.style.maxHeight = "0px";
+                dropdownMenu.style.opacity = "0";
+                dropdownMenu.addEventListener('transitionend', function handler(e) {
+                    if (e.propertyName === 'max-height') {
+                        dropdownMenu.classList.remove('open');
+                        dropdownMenu.style.maxHeight = null;
+                        dropdownMenu.removeEventListener('transitionend', handler);
+                    }
+                });
+                if (arrowIcon) {
+                    arrowIcon.classList.remove('rotate-down');
+                }
+            } else {
+                dropdownMenu.classList.add('open');
+                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                dropdownMenu.style.opacity = "1";
+                if (arrowIcon) {
+                    arrowIcon.classList.add('rotate-down');
                 }
             }
         });
     });
 
-    // Sticky top-bar
+    // Sticky header
     const sentinella = document.querySelector('.sentinella-stick');
     const fixedTop = document.querySelector('.fixed-top');
     if (sentinella && fixedTop) {
@@ -222,16 +224,10 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(sentinella);
     }
 
-    // Scrive la data corrente
     weatherDate();
     weatherDateNav();
 });
 
-// E gli eventi di resize e load
-window.addEventListener('load', hideOverflowingItems);
-window.addEventListener('resize', hideOverflowingItems);
-
-
-// Eventi al caricamento pagina
+// hide trending items
 window.addEventListener('load', hideOverflowingItems);
 window.addEventListener('resize', hideOverflowingItems);

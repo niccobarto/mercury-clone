@@ -407,6 +407,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     padding: 0.75rem 0 5rem 0;
     border-bottom: black 1px solid;
 }
+
 .search-overlay{
     margin-top:64px;
     position: fixed;
@@ -415,13 +416,10 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     display: none;
     z-index: 18;           /* sotto la barra (z‑index:20) */
 }
-/*
-.sections-list>li{
-    padding:11px 7.41px 11px 12px;
-}
-
- */
-.sections-list>li a{
+.smaller-arrow.rotate-down {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}.sections-list>li a{
     color:black;
     padding: 0.9375em;
 }
