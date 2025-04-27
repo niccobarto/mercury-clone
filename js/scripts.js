@@ -42,7 +42,7 @@ function checkLogoVisibility() {
         sectionsForm.classList.contains('open') ||
         subscribeForm.classList.contains('open');
 
-    if (window.innerWidth < 1040) {
+    if (window.innerWidth <= 1040) {
         // Se siamo su mobile, il logo deve sempre essere visibile
         titleContainer.style.visibility = 'visible';
     } else {
