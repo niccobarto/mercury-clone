@@ -332,6 +332,31 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     white-space: nowrap;
     padding-right: 2em;
 }
+.subscribe-form{
+    position:fixed;
+    width:300px;
+    top:64px;
+    right:0;
+    height: calc(100% - 64px);
+    transform: translateX(100%);
+    transition: transform 250ms ease-in-out;
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-top: black solid 1px;
+    z-index: 1000;
+    background-color: white;
+}
+.subscribe-form.open{
+    transform: translateX(0);
+}
+.main-subscribe-buttons{
+    min-height: 65vh;
+    padding: .75rem 0 3rem 0;
+    border-bottom: black solid 1px;
+}
+.subscribe-menu>li{
+    margin-bottom:25px;
+}
 .search-form {
     display: none;
     position: absolute;   /* “staccata” dal flow */
@@ -1100,6 +1125,13 @@ figure{
     box-sizing: border-box;
     padding: 0.875rem 0.625rem;
     margin: 0.75rem auto;
+}
+.subscribe-form .subscribe-button{
+    width: 230px;
+    box-sizing: border-box;
+    padding: 0.875rem 0.625rem;
+    margin: 0.75rem auto;
+
 }
 .subscribe-button{
     font: normal 600 .9375em / 1.0666666667 "Noto Sans", Helvetica, sans-serif;

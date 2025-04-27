@@ -32,40 +32,47 @@ function hideOverflowingItems() {
         }
     });
 }
+function checkLogoVisibility() {
+    const topBarForm = document.querySelector('.top-bar-form');
+    const sectionsForm = document.getElementById('sections-form');
+    const subscribeForm = document.getElementById('subscribe-form');
+    const titleContainer = document.querySelector('.title-container');
 
-// Funzione: Apri/chiudi la searchbar
-function toggleSearchBar() {
-    const form = document.getElementById('search-bar-form');
-    const wrapper = form?.closest('.top-bar-form');
-    if (!form || !wrapper) return;
+    const isAnyMenuOpen = topBarForm.classList.contains('search-open') ||
+        sectionsForm.classList.contains('open') ||
+        subscribeForm.classList.contains('open');
 
-    const isOpen = wrapper.classList.toggle('search-open');
-
-    if (isOpen) {
-        form.querySelector('.search-input')?.focus();
-        document.body.classList.add('noscroll');
+    if (window.innerWidth < 1040) {
+        // Se siamo su mobile, il logo deve sempre essere visibile
+        titleContainer.style.visibility = 'visible';
     } else {
-        document.body.classList.remove('noscroll');
+        // Se siamo su desktop, visibile solo se almeno un menu è aperto
+        if (isAnyMenuOpen) {
+            titleContainer.style.visibility = 'visible';
+        } else {
+            titleContainer.style.visibility = 'hidden';
+        }
     }
 }
 
-// Funzione: Apri/chiudi il menu sections
-function toggleSectionsForm() {
-    const form = document.getElementById('sections-form');
+window.onresize=function() {
+    const subscribeForm = document.getElementById('subscribe-form');
     const overlay = document.querySelector('.search-overlay');
-    if (!form || !overlay) return;
-
-    const isOpen = form.classList.toggle('open');
-
-    if (isOpen) {
-        overlay.style.display = 'block';
-        document.body.classList.add('noscroll');
-    } else {
+    if(window.innerWidth>=1041 && subscribeForm.classList.contains('open')){
+        subscribeForm.classList.remove('open');
         overlay.style.display = 'none';
         document.body.classList.remove('noscroll');
     }
+    checkLogoVisibility();
+};
+function toggleSubscribeFormArrow(isFormOpen,menuSubDigit){
+    const arrowImg=menuSubDigit.querySelector('.menu-sub-arrow');
+    if(isFormOpen){
+        arrowImg.style.transform = 'rotate(180deg) translate(3px, 3px)';
+    }else{
+        arrowImg.style.transform = 'rotate(0deg) translate(3px, 3px)';
+    }
 }
-
 // Esecuzione principale
 document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.querySelector('.search-container-icon');
@@ -74,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchWrapper = document.querySelector('.top-bar-form');
     const sectionsForm = document.getElementById('sections-form');
     const overlay = document.querySelector('.search-overlay');
+    const subscribeForm = document.getElementById('subscribe-form');
+    const menuSubDigit = document.getElementById('menu-sub-digit');
 
     function openSearchBar() {
         if (!searchWrapper.classList.contains('search-open')) {
@@ -83,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const input = searchWrapper.querySelector('.search-input');
             if (input) input.focus();
         }
+        checkLogoVisibility();
     }
 
     function closeSearchBar() {
@@ -91,14 +101,33 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.display = 'none';
             document.body.classList.remove('noscroll');
         }
+        checkLogoVisibility();
     }
-
+    function openSubscribeForm() {
+        if(!subscribeForm.classList.contains('open')) {
+            subscribeForm.classList.add('open');
+            overlay.style.display = 'block';
+            document.body.classList.add('noscroll');
+            toggleSubscribeFormArrow(true,menuSubDigit);
+        }
+        checkLogoVisibility();
+    }
+    function closeSubscribeForm() {
+        if(subscribeForm.classList.contains('open')){
+            subscribeForm.classList.remove('open');
+            overlay.style.display = 'none';
+            document.body.classList.remove('noscroll');
+            toggleSubscribeFormArrow(false,menuSubDigit);
+        }
+        checkLogoVisibility();
+    }
     function openSectionsMenu() {
         if (!sectionsForm.classList.contains('open')) {
             sectionsForm.classList.add('open');
             overlay.style.display = 'block';
             document.body.classList.add('noscroll');
         }
+        checkLogoVisibility();
     }
 
     function closeSectionsMenu() {
@@ -108,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('noscroll');
             toggleHamburgerIcon(false);
         }
+        checkLogoVisibility();
     }
 
     function toggleHamburgerIcon(isMenuOpen) {
@@ -128,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             event.stopPropagation();
             closeSectionsMenu();
+            closeSubscribeForm();
             if (searchWrapper.classList.contains('search-open')) {
                 closeSearchBar();
             } else {
@@ -135,12 +166,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
+    if(menuSubDigit){
+        menuSubDigit.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeSearchBar();
+            closeSectionsMenu();
+            if(subscribeForm.classList.contains('open')){
+                closeSubscribeForm();
+            }else{
+                openSubscribeForm();
+            }
+        })
+    }
     if (hamburgerMenu) {
         hamburgerMenu.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
             closeSearchBar();
+            closeSubscribeForm();
             if (sectionsForm.classList.contains('open')) {
                 closeSectionsMenu();
                 toggleHamburgerIcon(false);
@@ -159,6 +203,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (sectionsForm.classList.contains('open')) {
                 closeSectionsMenu();
                 toggleHamburgerIcon(false);
+            }
+            if(subscribeForm.classList.contains('open')) {
+                closeSubscribeForm();
             }
         });
     }
