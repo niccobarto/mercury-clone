@@ -825,7 +825,7 @@ figure{
 }
 .landing-content{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(295.5px, 1fr));
     gap: 25px;
 }
 .landing-title{
@@ -1445,5 +1445,8 @@ figure{
     }
     .feature-bottom-item>article>.feature-bottom-image {
         width: 100%;
+    }
+    .recommended-articles{
+        columns:1;
     }
 }
