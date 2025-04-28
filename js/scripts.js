@@ -37,7 +37,9 @@ function checkLogoVisibility() {
     const sectionsForm = document.getElementById('sections-form');
     const subscribeForm = document.getElementById('subscribe-form');
     const titleContainer = document.querySelector('.title-container');
+    const fixedTop = document.querySelector('.fixed-top');
 
+    const isSticky = fixedTop.classList.contains('fixed');
     const isAnyMenuOpen = topBarForm.classList.contains('search-open') ||
         sectionsForm.classList.contains('open') ||
         subscribeForm.classList.contains('open');
@@ -47,7 +49,7 @@ function checkLogoVisibility() {
         titleContainer.style.visibility = 'visible';
     } else {
         // Se siamo su desktop, visibile solo se almeno un menu è aperto
-        if (isAnyMenuOpen) {
+        if (isAnyMenuOpen || isSticky) {
             titleContainer.style.visibility = 'visible';
         } else {
             titleContainer.style.visibility = 'hidden';
