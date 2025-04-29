@@ -17,7 +17,7 @@
                         <div class="top-bar-container">
                             <div class="sections-container">
                                 <nav class="navbar">
-                                    <div class="hamburger-menu" role="button">
+                                    <div class="hamburger-menu" role="button" aria-label="Interazione menu di navigazione">
                                         <div class="hamburger" id="hamburger">
                                             <!-- Tre linee -->
                                             <span></span>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="right-main-container">
                                 <div class="right-container">
-                                    <div class="menu-sub-digit" id="menu-sub-digit" role="button">
+                                    <div class="menu-sub-digit" id="menu-sub-digit" role="button" aria-label="Apri menu utente" aria-controls="user-menu">
                                         <div class="menu-sub-icon-container">
                                             <img class="menu-sub-icon-image" alt="Subscribe-Log In navigation" src="images/person-fill.svg">
                                         </div>
@@ -44,10 +44,10 @@
                                             <img class="menu-sub-arrow" alt="Subscribe-Log In navigation" src="images/chevron-down.svg">
                                         </div>
                                     </div>
-                                    <div class="sub-container">
+                                    <div class="sub-container" role="navigation" aria-label="Menu utente">
                                         <ul class="ul-sub-bar">
-                                            <li><a href="#">Subscribe</a></li>
-                                            <li><a href="#">Log in</a></li>
+                                            <li><a href="#" role="button" aria-label="Iscriviti">Subscribe</a></li>
+                                            <li><a href="#" role="button" aria-label="Log in">Log in</a></li>
                                         </ul>
                                     </div>
                                     <div class="search-container">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <form class="sections-form" id="sections-form">
-                            <div class="main-section-list">
+                            <div class="main-section-list" role="navigation">
                                 <div class="subscribe-button-container">
                                     <a href="#" class="subscribe-button">
                                         <span>Subscribe Now</span>
@@ -83,13 +83,13 @@
                                 </div>
                                 <ul class="sections-list">
                                     <li class="homePage-item">
-                                        <a href="#">
+                                        <a href="#" aria-current="page" class="homePage-link">
                                             <img src="images/house.svg" alt="Home Page Icon">
                                             <span>Home Page</span>
                                         </a>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu News">
                                             <span>News</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -139,7 +139,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Locals">
                                             <span>Local</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -171,7 +171,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Obituaries">
                                             <span>Obituaries</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -188,7 +188,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Opinion">
                                             <span>Opinion</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -217,7 +217,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Sports">
                                             <span>Sports</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -273,7 +273,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Things To Do">
                                             <span>Things To Do</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -332,7 +332,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Business">
                                             <span>Business</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -358,7 +358,7 @@
                                         </ul>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Marketplace">
                                             <span>Marketplace</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -380,7 +380,7 @@
                                         </a>
                                     </li>
                                     <li class="section-item">
-                                        <a href="#">
+                                        <a href="#" role="button" aria-controls="Submenu Branded Content">
                                             <span>Branded Content</span>
                                             <i class="smaller-arrow right black-border"></i>
                                         </a>
@@ -407,7 +407,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="section-form-footer">
+                            <div class="section-form-footer" role="navigation">
                                 <div class="section-footer-container">
                                     <span> Get Morning Report and other email newsletters</span>
                                     <a href="#" class="subscribe-button">
@@ -416,12 +416,12 @@
                                 </div>
                             </div>
                         </form>
-                        <form class="search-form" id="search-bar-form">
+                        <form class="search-form" id="search-bar-form" role="search" aria-label="Modulo di ricerca articoli">>
                             <div class="search-input-bar">
                                 <span class="search-bar-span">
                                 <img src="images/search-bar-icon.png" class="search-bar-icon" alt="search icon">
                             </span>
-                                <input class="search-input" type="text" name="search" placeholder="Type your search">
+                                <input class="search-input" type="text" name="search" placeholder="Type your search" aria-label="Cerca nel sito">
                                 <div class="search-button-container">
                                     <button class="search-button" type="submit">
                                         <span>Search</span>
@@ -430,17 +430,17 @@
                             </div>
                         </form>
                         <form class="subscribe-form" id="subscribe-form">
-                            <div class="subscribe-form-container">
+                            <div class="subscribe-form-container" role="navigation" aria-label="Menu utente">
                                 <div class="main-subscribe-buttons">
                                     <ul class="subscribe-menu">
-                                        <li><a class="subscribe-button" href="#">Subscribe</a></li>
-                                        <li><a class="subscribe-button" href="#">Log in</a></li>
+                                        <li><a class="subscribe-button" href="#" role="button" aria-label="Iscriviti">Subscribe</a></li>
+                                        <li><a class="subscribe-button" href="#" role="button" aria-label="Log in">Log in</a></li>
                                     </ul>
                                 </div>
                                 <div class="section-form-footer">
                                     <div class="section-footer-container">
                                         <span> Get Morning Report and other email newsletters</span>
-                                        <a href="#" class="subscribe-button">
+                                        <a href="#" role="button" aria-label="Sign Up" class="subscribe-button">
                                             <span>Sign Up</span>
                                         </a>
                                     </div>
