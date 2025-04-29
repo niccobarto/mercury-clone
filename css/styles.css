@@ -1483,7 +1483,9 @@ figure{
     .category-element{
         flex-direction: column;
     }
-
+    .calendar-section{
+        grid-template-columns: 1fr;
+    }
 }
 @media (min-width: 800px) and (max-width: 1040px) {
     .secondary-section{
