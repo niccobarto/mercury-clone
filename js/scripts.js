@@ -32,6 +32,13 @@ function hideOverflowingItems() {
         }
     });
 }
+function isStickyHeader() {
+    const sentinella = document.querySelector('.sentinella-stick');
+    if (!sentinella) return false;
+
+    const rect = sentinella.getBoundingClientRect();
+    return rect.top < 0; // Se il top della sentinella è sopra il viewport, la header è sticky
+}
 function checkLogoVisibility() {
     const topBarForm = document.querySelector('.top-bar-form');
     const sectionsForm = document.getElementById('sections-form');
@@ -39,16 +46,14 @@ function checkLogoVisibility() {
     const titleContainer = document.querySelector('.title-container');
     const fixedTop = document.querySelector('.fixed-top');
 
-    const isSticky = fixedTop.classList.contains('fixed');
-    const isAnyMenuOpen = topBarForm.classList.contains('search-open') ||
-        sectionsForm.classList.contains('open') ||
-        subscribeForm.classList.contains('open');
+    const isSticky = isStickyHeader();
+    const isAnyMenuOpen = topBarForm.classList.contains('search-open') || sectionsForm.classList.contains('open') || subscribeForm.classList.contains('open');
 
     if (window.innerWidth <= 1040) {
-        // Se siamo su mobile, il logo deve sempre essere visibile
+        // SOTTO 1040px: deve SEMPRE essere visibile
         titleContainer.style.visibility = 'visible';
     } else {
-        // Se siamo su desktop, visibile solo se almeno un menu è aperto
+        // SOPRA 1040px: si vede solo se sticky o menu aperto
         if (isAnyMenuOpen || isSticky) {
             titleContainer.style.visibility = 'visible';
         } else {
@@ -280,3 +285,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // hide trending items
 window.addEventListener('load', hideOverflowingItems);
 window.addEventListener('resize', hideOverflowingItems);
+window.addEventListener('scroll', checkLogoVisibility);
+window.addEventListener('DOMContentLoaded', checkLogoVisibility);

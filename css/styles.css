@@ -746,9 +746,6 @@ figure{
     background-color: white;
     box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
-.fixed-top.fixed .title-container{
-    visibility: visible;
-}
 /* (opzionale) per evitare che il contenuto venga coperto */
 .fixed-top.fixed + .main-bar-container {
     margin-top: 64px; /* stessa altezza della barra */
