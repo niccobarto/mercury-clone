@@ -546,7 +546,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 15px;
-    row-gap: 25px;
+    row-gap: 22px;
 }
 /*
 .feature-bottom-title>a{
@@ -562,7 +562,6 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .feature-bottom-item>article{
     display: flex;
     flex-direction: column;
-    gap:7px;
 }
 .article-title-container{
     line-height: 1.13;
@@ -1372,7 +1371,7 @@ figure{
         height: 90px;
     }
     .feature-bottom-item{
-        padding-bottom:16px;
+        padding-bottom:14px;
         border-bottom: #aaa7a4 solid 1px;
     }
     .main-category-article{
