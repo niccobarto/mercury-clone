@@ -277,7 +277,13 @@ document.addEventListener('DOMContentLoaded', function() {
         );
         observer.observe(sentinella);
     }
-
+    const showMoreButton=document.getElementById('showMoreButton');
+    showMoreButton.addEventListener('click', (event) => {
+        const morePhotoSection=document.getElementById('morePhotoSection');
+        morePhotoSection.style.display = 'block';
+        morePhotoSection.setAttribute('aria-expanded', 'true');
+        showMoreButton.style.display = 'none';
+    })
     weatherDate();
     weatherDateNav();
 });
