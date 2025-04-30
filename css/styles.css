@@ -830,7 +830,8 @@ figure{
 .landing-content{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(295.5px, 1fr));
-    gap: 25px;
+    column-gap: 25px;
+    row-gap: 35px;
 }
 .landing-title{
     font: normal 400 1.25em / 1.1 "Noto Sans", Helvetica, sans-serif;
