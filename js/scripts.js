@@ -40,14 +40,14 @@ function isStickyHeader() {
     return rect.top < 0; // Se il top della sentinella è sopra il viewport, la header è sticky
 }
 function checkLogoVisibility() {
-    const topBarForm = document.querySelector('.top-bar-form');
+    const searchBarForm = document.getElementById('search-bar-form');
     const sectionsForm = document.getElementById('sections-form');
     const subscribeForm = document.getElementById('subscribe-form');
     const titleContainer = document.querySelector('.title-container');
     const fixedTop = document.querySelector('.fixed-top');
 
     const isSticky = isStickyHeader();
-    const isAnyMenuOpen = topBarForm.classList.contains('search-open') || sectionsForm.classList.contains('open') || subscribeForm.classList.contains('open');
+    const isAnyMenuOpen = searchBarForm.classList.contains('open') || sectionsForm.classList.contains('open') || subscribeForm.classList.contains('open');
 
     if (window.innerWidth <= 1040) {
         // SOTTO 1040px: deve SEMPRE essere visibile
@@ -85,26 +85,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.querySelector('.search-container-icon');
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const hamburgerIcon = document.getElementById('hamburger');
-    const searchWrapper = document.querySelector('.top-bar-form');
+    const searchBarForm = document.getElementById('search-bar-form');
     const sectionsForm = document.getElementById('sections-form');
     const overlay = document.querySelector('.search-overlay');
     const subscribeForm = document.getElementById('subscribe-form');
     const menuSubDigit = document.getElementById('menu-sub-digit');
 
     function openSearchBar() {
-        if (!searchWrapper.classList.contains('search-open')) {
-            searchWrapper.classList.add('search-open');
+        if (!searchBarForm.classList.contains('open')) {
+            searchBarForm.setAttribute('aria-hidden', 'false');
+            searchBarForm.classList.add('open');
             overlay.style.display = 'block';
             document.body.classList.add('noscroll');
-            const input = searchWrapper.querySelector('.search-input');
+            const input = searchBarForm.querySelector('.search-input');
             if (input) input.focus();
         }
         checkLogoVisibility();
     }
 
     function closeSearchBar() {
-        if (searchWrapper.classList.contains('search-open')) {
-            searchWrapper.classList.remove('search-open');
+        if (searchBarForm.classList.contains('open')) {
+            searchBarForm.setAttribute('aria-hidden', 'true');
+            searchBarForm.classList.remove('open');
             overlay.style.display = 'none';
             document.body.classList.remove('noscroll');
         }
@@ -112,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function openSubscribeForm() {
         if(!subscribeForm.classList.contains('open')) {
+            subscribeForm.setAttribute('aria-hidden', 'false');
             subscribeForm.classList.add('open');
             overlay.style.display = 'block';
             document.body.classList.add('noscroll');
@@ -121,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function closeSubscribeForm() {
         if(subscribeForm.classList.contains('open')){
+            subscribeForm.setAttribute('aria-hidden', 'true');
             subscribeForm.classList.remove('open');
             overlay.style.display = 'none';
             document.body.classList.remove('noscroll');
@@ -130,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function openSectionsMenu() {
         if (!sectionsForm.classList.contains('open')) {
+            sectionsForm.setAttribute('aria-hidden', 'false');
             sectionsForm.classList.add('open');
             overlay.style.display = 'block';
             document.body.classList.add('noscroll');
@@ -139,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeSectionsMenu() {
         if (sectionsForm.classList.contains('open')) {
+            sectionsForm.setAttribute('aria-hidden', 'true');
             sectionsForm.classList.remove('open');
             overlay.style.display = 'none';
             document.body.classList.remove('noscroll');
@@ -166,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.stopPropagation();
             closeSectionsMenu();
             closeSubscribeForm();
-            if (searchWrapper.classList.contains('search-open')) {
+            if (searchBarForm.classList.contains('open')) {
                 closeSearchBar();
             } else {
                 openSearchBar();
@@ -204,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (overlay) {
         overlay.addEventListener('click', () => {
-            if (searchWrapper.classList.contains('search-open')) {
+            if (searchBarForm.classList.contains('open')) {
                 closeSearchBar();
             }
             if (sectionsForm.classList.contains('open')) {

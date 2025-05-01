@@ -492,16 +492,9 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     font: normal 700 .9375em / 1.0666666667 "Noto Sans", Helvetica, sans-serif;
     color: #0a0908;
 }
-/* overlay visibile quando .top-bar-form è aperta */
-.top-bar-form.search-open .search-overlay{
-    display: block;        /* <-- descendant, non sibling */
-}
 
-/* search‑bar visibile SOLO quando .top-bar-container ha la classe */
-.top-bar-form .search-form { display: none; }
-
-/* quando .top-bar-form ha la classe, mostra la search‑bar… */
-.top-bar-form.search-open .search-form { display: flex; }
+.search-form { display: none; }
+.search-form.open { display: flex; }
 /*---content-style---*/
 .content{
     max-width: 1300px;
@@ -1399,7 +1392,6 @@ figure{
     .sections-container{
         width: 33%;
     }
-    .top-bar-form.search-open .title-container { visibility: visible; }
     .sections-container #sections-label { display: none; }
     .main-bar-container { display: none; }
     .menu-section { display: none; }
@@ -1432,9 +1424,6 @@ figure{
     }
 }
 @media (min-width: 1040px) {          /* viewport ≥ 1040 px */
-    .top-bar-form.search-open .title-container {
-        visibility: visible;
-    }
     .site-footer .footer-menus {
         padding: 0 0.625em;
     }

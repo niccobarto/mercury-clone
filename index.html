@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form class="sections-form" id="sections-form">
+                        <form class="sections-form" id="sections-form" aria-hidden="true">
                             <div class="main-section-list" role="navigation">
                                 <div class="subscribe-button-container">
                                     <a href="#" class="subscribe-button" role="button" aria-label="Iscriviti">
@@ -416,7 +416,7 @@
                                 </div>
                             </div>
                         </form>
-                        <form class="search-form" id="search-bar-form" role="search" aria-label="Modulo di ricerca articoli">>
+                        <form class="search-form" id="search-bar-form" role="search" aria-label="Modulo di ricerca articoli" aria-hidden="true">
                             <div class="search-input-bar">
                                 <span class="search-bar-span">
                                 <img src="images/search-bar-icon.png" class="search-bar-icon" alt="search icon">
@@ -429,7 +429,7 @@
                                 </div>
                             </div>
                         </form>
-                        <form class="subscribe-form" id="subscribe-form">
+                        <form class="subscribe-form" id="subscribe-form" aria-hidden="true">
                             <div class="subscribe-form-container" role="navigation" aria-label="Menu utente">
                                 <div class="main-subscribe-buttons">
                                     <ul class="subscribe-menu">
@@ -1913,12 +1913,12 @@
                         </a>
                     </div>
                     <div class="calendar-interactions">
-                        <a class="calendar-icon" href="#">
+                        <a class="calendar-icon" href="#" aria-label="Guarda tutti gli eventi" role="button">
                             <img src="images/calendar.svg" alt="See events">
                             <span>See All Events</span>
                         </a>
 
-                        <a class="calendar-icon" href="#">
+                        <a class="calendar-icon" href="#" aria-label="Aggiungi un evento" role="button">
                             <img src="images/plus.svg" alt="Add Event">
                             <span>Add your event</span>
                         </a>
