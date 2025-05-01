@@ -5,7 +5,6 @@ function formatDate() {
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     return `${weekDays[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}th ${today.getFullYear()}`;
 }
-
 // Funzioni: Scrive la data nei punti giusti
 function weatherDate() {
     const datelab = document.getElementById('date-label');
@@ -15,7 +14,20 @@ function weatherDateNav() {
     const datelab = document.getElementById('nav-date-label');
     if (datelab) datelab.innerHTML = formatDate();
 }
-
+function checkAriaHidden(){
+    const trendingContainer=document.getElementById('trendingContainer');
+    const menuSection=document.getElementById('menuSection');
+    const mainBarContainer=document.getElementById('mainBarContainer');
+    if(window.innerWidth<=1040){
+        trendingContainer.setAttribute("aria-hidden","true");
+        menuSection.setAttribute("aria-hidden","true");
+        mainBarContainer.setAttribute("aria-hidden","true");
+    }else{
+        trendingContainer.setAttribute("aria-hidden","false");
+        menuSection.setAttribute("aria-hidden","false");
+        mainBarContainer.setAttribute("aria-hidden","false");
+    }
+}
 // Funzione: Nasconde i trending che sforano
 function hideOverflowingItems() {
     const container = document.querySelector('.trending-nav');
@@ -71,6 +83,7 @@ window.onresize=function() {
         document.body.classList.remove('noscroll');
     }
     checkLogoVisibility();
+    checkAriaHidden();
 };
 function toggleSubscribeFormArrow(isFormOpen,menuSubDigit){
     const arrowImg=menuSubDigit.querySelector('.menu-sub-arrow');
@@ -290,6 +303,8 @@ document.addEventListener('DOMContentLoaded', function() {
         morePhotoSection.setAttribute('aria-expanded', 'true');
         showMoreButton.style.display = 'none';
     })
+    checkAriaHidden();
+    checkLogoVisibility();
     weatherDate();
     weatherDateNav();
 });
@@ -298,4 +313,3 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', hideOverflowingItems);
 window.addEventListener('resize', hideOverflowingItems);
 window.addEventListener('scroll', checkLogoVisibility);
-window.addEventListener('DOMContentLoaded', checkLogoVisibility);

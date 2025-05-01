@@ -283,9 +283,6 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .trending-container{
     width: 100%;
     overflow: hidden;
-    font-family: "Noto Sans", sans-serif;
-}
-.trending-container {
     font-family: "Noto Sans", Helvetica, sans-serif;
 }
 
