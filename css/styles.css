@@ -1579,4 +1579,7 @@ figure{
     .recommended-articles{
         columns:1;
     }
+    .calendar-interactions .calendar-icon>span{
+        display: none;
+    }
 }
