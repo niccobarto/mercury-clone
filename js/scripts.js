@@ -267,9 +267,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const isOpen = footerMenu.classList.contains('open');
             if(isOpen){
              footerMenu.classList.remove('open');
+             footerMenu.setAttribute('aria-hidden', 'true');
              toggle.setAttribute('aria-expanded', 'false');
             }else{
                 footerMenu.classList.add('open');
+                footerMenu.setAttribute('aria-hidden', 'false');
                 toggle.setAttribute('aria-expanded', 'true');
             }
         });
@@ -287,10 +289,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const isMobile = mqEvent.matches;
 
         footerMenus.forEach(menu => {
-            if(isMobile)
+            if(isMobile){
+                menu.setAttribute('aria-hidden', 'true');
                 menu.classList.remove('open');
-            else
+            }
+            else{
+                menu.setAttribute('aria-hidden', 'false');
                 menu.classList.add('open');
+            }
         });
 
         toggles.forEach(toggle => {
