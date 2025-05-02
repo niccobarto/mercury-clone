@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!dropdownMenu) return;
 
             if (dropdownMenu.classList.contains('open')) {
+                link.setAttribute('aria-expanded', 'false');
                 dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
                 dropdownMenu.offsetHeight;
                 dropdownMenu.style.maxHeight = "0px";
@@ -274,6 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     arrowIcon.classList.remove('rotate-down');
                 }
             } else {
+                link.setAttribute('aria-expanded', 'true');
                 dropdownMenu.classList.add('open');
                 dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
                 dropdownMenu.style.opacity = "1";
