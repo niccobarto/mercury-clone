@@ -77,10 +77,12 @@ function checkLogoVisibility() {
 window.onresize=function() {
     const subscribeForm = document.getElementById('subscribe-form');
     const overlay = document.querySelector('.search-overlay');
+    const menuSubDigit = document.getElementById('menu-sub-digit');
     if(window.innerWidth>=1041 && subscribeForm.classList.contains('open')){
         subscribeForm.classList.remove('open');
         overlay.style.display = 'none';
         document.body.classList.remove('noscroll');
+        toggleSubscribeFormArrow(false,menuSubDigit);
     }
     checkLogoVisibility();
     checkAriaHidden();
@@ -95,7 +97,7 @@ function toggleSubscribeFormArrow(isFormOpen,menuSubDigit){
 }
 // Esecuzione principale
 document.addEventListener('DOMContentLoaded', function() {
-    const searchButton = document.querySelector('.search-container-icon');
+    const searchButton = document.querySelector('.search-opener');
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const hamburgerIcon = document.getElementById('hamburger');
     const searchBarForm = document.getElementById('search-bar-form');
@@ -106,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openSearchBar() {
         if (!searchBarForm.classList.contains('open')) {
+            searchButton.setAttribute('aria-expanded','true');
             searchBarForm.setAttribute('aria-hidden', 'false');
             searchBarForm.classList.add('open');
             overlay.style.display = 'block';
@@ -118,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeSearchBar() {
         if (searchBarForm.classList.contains('open')) {
+            searchButton.setAttribute('aria-expanded','false');
             searchBarForm.setAttribute('aria-hidden', 'true');
             searchBarForm.classList.remove('open');
             overlay.style.display = 'none';
@@ -127,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function openSubscribeForm() {
         if(!subscribeForm.classList.contains('open')) {
+            menuSubDigit.setAttribute('aria-expanded', 'true');
             subscribeForm.setAttribute('aria-hidden', 'false');
             subscribeForm.classList.add('open');
             overlay.style.display = 'block';
@@ -137,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function closeSubscribeForm() {
         if(subscribeForm.classList.contains('open')){
+            menuSubDigit.setAttribute('aria-expanded', 'false');
             subscribeForm.setAttribute('aria-hidden', 'true');
             subscribeForm.classList.remove('open');
             overlay.style.display = 'none';
@@ -147,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function openSectionsMenu() {
         if (!sectionsForm.classList.contains('open')) {
+            hamburgerMenu.setAttribute('aria-expanded', 'true');
             sectionsForm.setAttribute('aria-hidden', 'false');
             sectionsForm.classList.add('open');
             overlay.style.display = 'block';
@@ -157,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeSectionsMenu() {
         if (sectionsForm.classList.contains('open')) {
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
             sectionsForm.setAttribute('aria-hidden', 'true');
             sectionsForm.classList.remove('open');
             overlay.style.display = 'none';

@@ -17,8 +17,8 @@
                         <div class="top-bar-container">
                             <div class="sections-container">
                                 <nav class="navbar">
-                                    <div class="hamburger-menu" role="button" aria-label="Interazione menu di navigazione">
-                                        <div class="hamburger" id="hamburger">
+                                    <div class="hamburger-menu" role="button" aria-label="Interazione menu di navigazione" aria-controls="sections-form" aria-expanded="false" tabindex="0">
+                                        <div class="hamburger" id="hamburger" aria-hidden="true">
                                             <!-- Tre linee -->
                                             <span></span>
                                             <span></span>
@@ -36,12 +36,12 @@
                             </div>
                             <div class="right-main-container">
                                 <div class="right-container">
-                                    <div class="menu-sub-digit" id="menu-sub-digit" role="button" aria-label="Apri menu utente" aria-controls="user-menu">
-                                        <div class="menu-sub-icon-container">
-                                            <img class="menu-sub-icon-image" alt="Subscribe-Log In navigation" src="images/person-fill.svg">
+                                    <div class="menu-sub-digit" id="menu-sub-digit" role="button" aria-label="Apri menu utente" aria-controls="user-menu" aria-expanded="false" tabindex="0">
+                                        <div class="menu-sub-icon-container" aria-hidden="true">
+                                            <img class="menu-sub-icon-image" alt="" src="images/person-fill.svg">
                                         </div>
-                                        <div class="menu-sub-icon-container">
-                                            <img class="menu-sub-arrow" alt="Subscribe-Log In navigation" src="images/chevron-down.svg">
+                                        <div class="menu-sub-icon-container" aria-hidden="true">
+                                            <img class="menu-sub-arrow" alt="" src="images/chevron-down.svg">
                                         </div>
                                     </div>
                                     <div class="sub-container" role="navigation" aria-label="Menu utente">
@@ -51,8 +51,8 @@
                                         </ul>
                                     </div>
                                     <div class="search-container">
-                                        <button type="submit">
-                                            <img src="images/search-bar-icon.png" class="search-container-icon" alt="search icon">
+                                        <button class="search-opener" type="submit" aria-label="Apri la barra di ricerca" aria-controls="search-bar-form" aria-expanded="false">
+                                            <img src="images/search-bar-icon.png" class="search-container-icon" alt="" aria-hidden="true">
                                         </button>
                                     </div>
                                 </div>
@@ -2171,7 +2171,7 @@
         <div class="footer-logo">
             <div class="logo">
                 <a href="#">
-                    <img alt="The Mercury News" src="images/logo.svg">
+                    <img alt="The Mercury News" src="images/title.png">
                 </a>
             </div>
         </div>
