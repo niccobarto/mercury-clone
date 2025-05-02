@@ -105,7 +105,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.querySelector('.search-overlay');
     const subscribeForm = document.getElementById('subscribe-form');
     const menuSubDigit = document.getElementById('menu-sub-digit');
+    function disableFormFocus(form) {
+        form.querySelectorAll('input, button, a, textarea, select').forEach(el => {
+            el.dataset.prevTabindex = el.getAttribute('tabindex'); // salva il valore precedente
+            el.setAttribute('tabindex', '-1');
+        });
+    }
 
+    function enableFormFocus(form) {
+        form.querySelectorAll('input, button, a, textarea, select').forEach(el => {
+            if (el.dataset.prevTabindex !== null) {
+                el.setAttribute('tabindex', el.dataset.prevTabindex);
+                delete el.dataset.prevTabindex;
+            } else {
+                el.removeAttribute('tabindex');
+            }
+        });
+    }
     function openSearchBar() {
         if (!searchBarForm.classList.contains('open')) {
             searchButton.setAttribute('aria-expanded','true');
@@ -113,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBarForm.classList.add('open');
             overlay.style.display = 'block';
             document.body.classList.add('noscroll');
+            enableFormFocus(searchBarForm);
             const input = searchBarForm.querySelector('.search-input');
             if (input) input.focus();
         }
@@ -125,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBarForm.setAttribute('aria-hidden', 'true');
             searchBarForm.classList.remove('open');
             overlay.style.display = 'none';
+            disableFormFocus(searchBarForm);
             document.body.classList.remove('noscroll');
         }
         checkLogoVisibility();
@@ -135,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subscribeForm.setAttribute('aria-hidden', 'false');
             subscribeForm.classList.add('open');
             overlay.style.display = 'block';
+            enableFormFocus(subscribeForm);
             document.body.classList.add('noscroll');
             toggleSubscribeFormArrow(true,menuSubDigit);
         }
@@ -146,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subscribeForm.setAttribute('aria-hidden', 'true');
             subscribeForm.classList.remove('open');
             overlay.style.display = 'none';
+            disableFormFocus(subscribeForm);
             document.body.classList.remove('noscroll');
             toggleSubscribeFormArrow(false,menuSubDigit);
         }
@@ -156,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburgerMenu.setAttribute('aria-expanded', 'true');
             sectionsForm.setAttribute('aria-hidden', 'false');
             sectionsForm.classList.add('open');
+            enableFormFocus(sectionsForm);
             overlay.style.display = 'block';
             document.body.classList.add('noscroll');
         }
@@ -168,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sectionsForm.setAttribute('aria-hidden', 'true');
             sectionsForm.classList.remove('open');
             overlay.style.display = 'none';
+            disableFormFocus(sectionsForm);
             document.body.classList.remove('noscroll');
             toggleHamburgerIcon(false);
         }
@@ -376,6 +398,9 @@ document.addEventListener('DOMContentLoaded', function() {
     checkLogoVisibility();
     weatherDate();
     weatherDateNav();
+    disableFormFocus(searchBarForm);
+    disableFormFocus(subscribeForm);
+    disableFormFocus(sectionsForm);
 });
 
 // hide trending items
