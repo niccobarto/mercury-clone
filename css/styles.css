@@ -280,6 +280,11 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     color:#0a0908;
     text-decoration: none;
 }
+.menu-section li>a:hover{
+    text-decoration: underline;
+    color: #007ab8;
+}
+
 .trending-container{
     width: 100%;
     overflow: hidden;
@@ -318,6 +323,9 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
 .trending-container-wrapped a {
     color: #38322a;
     text-decoration: none;
+}
+.trending-container-wrapped a:hover{
+    color:#006da3;
 }
 
 .trending-container-wrapped p {
