@@ -570,7 +570,6 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     font: normal 700 1.56em / 1.16 "Noto Serif", Helvetica, serif;
     letter-spacing: -0.03em;
     margin-bottom: 0.36em;
-    font-size: 1.8125em;
 }
 .related-main>h3{
     font: normal 600 0.75em / 1.25 "Noto Serif", Helvetica, serif;
@@ -888,7 +887,7 @@ figure{
     padding-bottom: 0.5em;
 }
 .main-photo-article .entry-title{
-    font: normal 700 1.35em / 1.16 "Noto Serif", Helvetica, serif;
+    font: normal 700 1.62em / 1.16 "Noto Serif", Helvetica, serif;
     letter-spacing: -0.03em;
     margin-bottom: 0.36em;
 }
@@ -1486,7 +1485,7 @@ figure{
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 799px) {
     .feature-container{
         grid-template-columns: 1fr;
         row-gap: 32px;
@@ -1541,7 +1540,7 @@ figure{
     }
 
 }
-@media(max-width: 800px) and (min-width:635px) {
+@media(max-width: 799px) and (min-width:635px) {
     .feature-bottom-item>article{
         display: flex;
         flex-direction: row;
@@ -1551,7 +1550,15 @@ figure{
         width: 100%;
     }
 }
-@media(max-width: 635px) {
+@media(min-width: 635px){
+    .feature-top .entry-title{
+        font-size: 1.8em;
+    }
+    .main-photo-article .entry-title{
+        font-size:1.8em;
+    }
+}
+@media(max-width: 634px) {
     .main-photo-article-container ul{
         display:block;
     }
