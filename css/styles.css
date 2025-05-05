@@ -547,11 +547,6 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     column-gap: 15px;
     row-gap: 22px;
 }
-/*
-.feature-bottom-title>a{
-    display: block !important;
-}
- */
 .feature-bottom-item .entry-title{
     font: normal 700 1.30em / 1.2222222222 "Noto Serif", Helvetica, serif;
     color:black;
