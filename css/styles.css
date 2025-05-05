@@ -44,7 +44,6 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     height: 64px;
 }
 .sections-container{
-    cursor: pointer;
     height: 64px;
     width: 33%;
 }
@@ -55,6 +54,7 @@ flex-basis:specifica la lunghezza iniziale di un elemento flessibile
     width: fit-content;
     height: 64px;
     gap:0.50rem;
+    cursor:pointer;
 }
 .hamburger{
     display: flex;
