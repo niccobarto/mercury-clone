@@ -1172,6 +1172,7 @@ figure{
     object-fit: contain;
 }
 .footer-menu {
+    width:100%;
     display:none;
 }
 .footer-menu.open{
